@@ -1,21 +1,106 @@
+description = """NRK Shared Java libraries.
+	Provides small and simple Java libraries.
+"""
 
-description = "NRK Shared Java libraries - less dependencies is more"
+ext {
+	// Libraries shared among all modules - should be kept to a minimum.
+	libraries = [:]
+}
+
+libraries.junit			= 'junit:junit:4.12'
+libraries.assertj		= 'org.assertj:assertj-core:3.2.0'
+
 
 subprojects {
 	apply plugin: 'java'
+	apply plugin: 'maven'
+	apply plugin: 'signing'
 
 	group 'no.nrk.shared'
 
+	task javadocJar(type: Jar) {
+		classifier = 'javadoc'
+		from javadoc
+	}
+	
+	task sourcesJar(type: Jar) {
+		classifier = 'sources'
+		from sourceSets.main.allSource
+	}
+
+	artifacts {
+		archives javadocJar, sourcesJar
+	}
+
+	signing {
+		required { gradle.taskGraph.hasTask("uploadArchives") }
+		sign configurations.archives
+	}
+
 	compileJava {
+		options.encoding = 'UTF-8'
 		sourceCompatibility = 1.8
 		targetCompatibility = 1.8
 
-		options.deprecation  = true
+		options.deprecation = true
 		options.compilerArgs << '-Xlint:unchecked'
+	}
+
+	tasks.withType(Test) {
+		// Making sure the tests run in edge-case environments
+		systemProperty 'file.encoding', 'US-ASCII'
+		systemProperty 'user.country', 'TW'
+		systemProperty 'user.language', 'zh'
+		systemProperty 'user.variant', ''
+	}
+	
+	tasks.withType(Javadoc) {
+		options.addStringOption('Xdoclint:none', '-quiet')
 	}
 
 	repositories {
 		mavenCentral()
+	}
+	
+	uploadArchives {
+		repositories {
+			mavenDeployer {
+				beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+				repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+					authentication(userName: ossrhUsername, password: ossrhPassword)
+				}
+
+				snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+					authentication(userName: ossrhUsername, password: ossrhPassword)
+				}
+
+				pom.project {
+					url 'https://github.com/nrkno/nrk-shared-java'
+
+					scm {
+						connection 'scm:git:git@github.com:nrkno/nrk-shared-java.git'
+						developerConnection 'scm:git:git@github.com:nrkno/nrk-shared-java.git'
+						url 'git@github.com:nrkno/nrk-shared-java.git'
+					}
+
+					licenses {
+						license {
+							name 'MIT License'
+							url 'https://www.tldrlegal.com/l/mit'
+						}
+					}
+
+					developers {
+						developer {
+							id 'hovenko'
+							name 'Knut-Olav Hoven'
+							email 'knut-olav.hoven@nrk.no'
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

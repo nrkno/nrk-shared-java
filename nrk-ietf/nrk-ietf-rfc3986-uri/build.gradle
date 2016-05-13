@@ -1,0 +1,7 @@
+description = """Java specification of IETF RFC 3986 (URI)
+"""
+
+dependencies {
+	testCompile libraries.junit
+	testCompile libraries.assertj
+}

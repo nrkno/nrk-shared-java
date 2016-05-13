@@ -1,0 +1,8 @@
+description = """Java implementation of IETF RFC 3986 (URI)
+"""
+
+dependencies {
+	compile project(':nrk-common')
+	compile project(':nrk-java-util')
+	compile project(':nrk-ietf:nrk-ietf-rfc3986-uri')
+}

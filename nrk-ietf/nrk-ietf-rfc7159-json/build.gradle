@@ -1,0 +1,10 @@
+description = """Java specification of IETF RFC 7159 (JSON)
+"""
+
+dependencies {
+	compile project(':nrk-common')
+	compile project(':nrk-java-util')
+
+	testCompile libraries.junit
+	testCompile libraries.assertj
+}

@@ -1,0 +1,9 @@
+description = """Common code that does not depend on anything,
+	not even standard Java Runtime types
+	(only built-in java.lang.* types)
+"""
+
+dependencies {
+	testCompile libraries.junit
+	testCompile libraries.assertj
+}

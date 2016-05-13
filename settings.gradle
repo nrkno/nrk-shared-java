@@ -1,3 +1,7 @@
 include 'nrk-common',
-	'nrk-ietf:nrk-ietf-rfc3986-uri'
+	'nrk-ietf:nrk-ietf-rfc3986-uri',
+	'nrk-ietf:nrk-ietf-rfc3986-uri-javanet',
+	'nrk-ietf:nrk-ietf-rfc7159-json',
+	'nrk-ietf:nrk-ietf-rfc7159-json-jackson',
+	'nrk-java-util'
 

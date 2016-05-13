@@ -1,0 +1,10 @@
+description = """Extensions and additions to Java classes.
+	Depends only on Java Runtime types (in addition to our nrk-common module).
+"""
+
+dependencies {
+	compile project(':nrk-common')
+
+	testCompile libraries.junit
+	testCompile libraries.assertj
+}

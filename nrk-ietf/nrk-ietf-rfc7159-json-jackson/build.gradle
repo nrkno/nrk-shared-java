@@ -1,0 +1,10 @@
+description = """Jackson implementation of IETF RFC 7159 (JSON)
+"""
+
+dependencies {
+	compile project(':nrk-ietf:nrk-ietf-rfc7159-json')
+	compile "com.fasterxml.jackson.core:jackson-databind:2.6.1"
+
+	testCompile libraries.junit
+	testCompile libraries.assertj
+}
