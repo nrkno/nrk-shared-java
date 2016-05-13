@@ -1,0 +1,26 @@
+
+description = "NRK Shared Java libraries - less dependencies is more"
+
+subprojects {
+	apply plugin: 'java'
+
+	group 'no.nrk.shared'
+
+	compileJava {
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
+
+		options.deprecation  = true
+		options.compilerArgs << '-Xlint:unchecked'
+	}
+
+	repositories {
+		mavenCentral()
+	}
+}
+
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.13'
+}
+

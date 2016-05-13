@@ -1,0 +1,25 @@
+# This can be used by several editors (such as IntelliJ, Atom, Sublime etc.) to
+# set preferences for code formatting etc.
+# see http://editorconfig.org/
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{java,jsp,xml,gradle,mst}]
+indent_style = tab
+indent_size = 4
+
+[*.{js,styl,css}]
+indent_style = space
+indent_size = 2
+
+[*.sh]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
