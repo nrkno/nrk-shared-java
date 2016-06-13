@@ -19,6 +19,10 @@ public abstract class JsonMembers implements Iterable<JsonMember> {
 		return all().iterator();
 	}
 
+	protected boolean equals(JsonMembers rhs) {
+		return all().equals(rhs.all());
+	}
+
 	@Override
 	public String toString() {
 		return ToString.of(this)

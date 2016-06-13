@@ -29,6 +29,12 @@ public final class JsonUndefinedValue extends AbstractJsonValue {
 	}
 
 	@Override
+	protected boolean equalsJsonValue(JsonValue rhs) {
+		return rhs.isUndefined()
+				.isPresent();
+	}
+
+	@Override
 	public String toString() {
 		return ToString.of(this)
 				.toString();

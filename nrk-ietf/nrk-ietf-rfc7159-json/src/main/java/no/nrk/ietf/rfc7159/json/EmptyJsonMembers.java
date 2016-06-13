@@ -26,6 +26,11 @@ final class EmptyJsonMembers extends JsonMembers {
 	}
 
 	@Override
+	protected boolean equals(JsonMembers rhs) {
+		return 0 == rhs.all().size();
+	}
+
+	@Override
 	public String toString() {
 		return ToString.of(this)
 				.toString();

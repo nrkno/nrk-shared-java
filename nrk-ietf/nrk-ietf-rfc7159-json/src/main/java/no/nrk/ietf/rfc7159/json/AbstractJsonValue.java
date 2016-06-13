@@ -4,6 +4,7 @@ import java.util.Optional;
 
 abstract class AbstractJsonValue extends JsonValue {
 
+	@Override
 	public Optional<JsonNullValue> isNull() {
 		return Optional.empty();
 	}

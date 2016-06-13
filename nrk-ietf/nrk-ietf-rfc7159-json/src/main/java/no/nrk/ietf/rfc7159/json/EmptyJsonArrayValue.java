@@ -26,6 +26,13 @@ public final class EmptyJsonArrayValue extends JsonArrayValue {
 	}
 
 	@Override
+	protected boolean equalsJsonValue(JsonValue rhs) {
+		return rhs.isArray()
+				.filter(cand -> cand.isEmpty())
+				.isPresent();
+	}
+
+	@Override
 	public String toString() {
 		return ToString.of(this)
 				.toString();

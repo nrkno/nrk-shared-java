@@ -23,6 +23,25 @@ public final class JsonNumberValue extends AbstractJsonValue {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		return result;
+	}
+
+	@Override
+	protected boolean equalsJsonValue(JsonValue rhs) {
+		return rhs.isNumber()
+				.filter(this::equalsJsonNumberValue)
+				.isPresent();
+	}
+
+	private boolean equalsJsonNumberValue(JsonNumberValue cand) {
+		return cand.numberValue().equals(numberValue());
+	}
+
+	@Override
 	public boolean isEmpty() {
 		return false;
 	}

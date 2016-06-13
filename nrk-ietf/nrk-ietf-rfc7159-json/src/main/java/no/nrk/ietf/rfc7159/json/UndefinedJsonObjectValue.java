@@ -30,6 +30,13 @@ public final class UndefinedJsonObjectValue extends JsonObjectValue {
 	}
 
 	@Override
+	protected boolean equalsJsonValue(JsonValue rhs) {
+		return rhs.isObject()
+				.filter(cand -> cand.isEmpty() && cand.isUndefined().isPresent())
+				.isPresent();
+	}
+
+	@Override
 	public String toString() {
 		return ToString.of(this)
 				.toString();

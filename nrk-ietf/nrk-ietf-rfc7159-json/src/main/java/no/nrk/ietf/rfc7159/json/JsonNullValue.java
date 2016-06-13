@@ -20,6 +20,12 @@ public final class JsonNullValue extends AbstractJsonValue {
 	}
 
 	@Override
+	protected boolean equalsJsonValue(JsonValue rhs) {
+		return rhs.isNull()
+				.isPresent();
+	}
+
+	@Override
 	public Optional<JsonNullValue> isNull() {
 		return Optional.of(this);
 	}

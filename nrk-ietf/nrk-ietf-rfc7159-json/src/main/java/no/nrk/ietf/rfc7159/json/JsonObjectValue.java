@@ -22,5 +22,16 @@ public abstract class JsonObjectValue extends AbstractJsonValue {
 		return members().all().isEmpty();
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof JsonObjectValue) {
+			JsonObjectValue rhs = (JsonObjectValue) obj;
+			if (this.isEmpty() && rhs.isEmpty()) {
+				return true;
+			}
+		}
+		return super.equals(obj);
+	}
+
 	public abstract JsonMembers members();
 }

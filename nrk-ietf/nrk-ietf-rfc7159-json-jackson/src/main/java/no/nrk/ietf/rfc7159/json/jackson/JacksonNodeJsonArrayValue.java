@@ -35,6 +35,13 @@ public final class JacksonNodeJsonArrayValue extends JsonArrayValue {
 	}
 
 	@Override
+	protected boolean equalsJsonValue(JsonValue rhs) {
+		return rhs.isArray()
+				.filter(cand -> cand.values().equals(values()))
+				.isPresent();
+	}
+
+	@Override
 	public String toString() {
 		return ToString.of(this)
 				.with("json", json)

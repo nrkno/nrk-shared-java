@@ -21,6 +21,25 @@ public final class JsonBooleanValue extends AbstractJsonValue {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (isTrue ? 1231 : 1237);
+		return result;
+	}
+
+	@Override
+	protected boolean equalsJsonValue(JsonValue rhs) {
+		return rhs.isBoolean()
+				.filter(cand -> equalsJsonBooleanValue(cand))
+				.isPresent();
+	}
+
+	private boolean equalsJsonBooleanValue(JsonBooleanValue cand) {
+		return isTrue() == cand.isTrue();
+	}
+
+	@Override
 	public boolean isEmpty() {
 		return false;
 	}

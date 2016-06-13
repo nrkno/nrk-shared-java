@@ -5,6 +5,17 @@ import java.util.Optional;
 import no.nrk.common.util.ToString;
 
 public abstract class JsonValue {
+
+	/**
+	 * A JSON value is empty if it contains no value(s), such as an empty JSON
+	 * object, an empty JSON array, <code>null</code> or an "undefined" value
+	 * reference.
+	 * 
+	 * <p>
+	 * Be aware that an empty string is not empty - see
+	 * {@link JsonStringValue#isEmpty()} for details.
+	 * </p>
+	 */
 	public abstract boolean isEmpty();
 
 	public abstract Optional<JsonStringValue> isString();
@@ -20,6 +31,28 @@ public abstract class JsonValue {
 	public abstract Optional<JsonObjectValue> isObject();
 
 	public abstract Optional<JsonArrayValue> isArray();
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
+		if (obj instanceof JsonValue) {
+			JsonValue rhs = (JsonValue) obj;
+			if (this.isEmpty() != rhs.isEmpty()) {
+				return false;
+			}
+			if (this.isUndefined().isPresent() != rhs.isUndefined().isPresent()) {
+				return false;
+			}
+			return equalsJsonValue(rhs);
+		} else {
+			return super.equals(obj);
+		}
+	}
+
+	protected abstract boolean equalsJsonValue(JsonValue rhs);
 
 	/**
 	 * @return this instance, if it's a JSON object, otherwise an undefined
