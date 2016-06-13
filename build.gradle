@@ -19,8 +19,6 @@ subprojects {
 	group 'no.nrk.shared'
 	version "0.0.1"
 	
-	def projDesc = project.description
-
 	task javadocJar(type: Jar) {
 		classifier = 'javadoc'
 		from javadoc
@@ -80,7 +78,7 @@ subprojects {
 
 				pom.project {
 					name project.name
-					description projDesc
+					description project.description
 					url 'https://github.com/nrkno/nrk-shared-java'
 
 					scm {
