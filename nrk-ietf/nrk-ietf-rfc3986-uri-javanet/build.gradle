@@ -5,4 +5,7 @@ dependencies {
 	compile project(':nrk-common')
 	compile project(':nrk-java-util')
 	compile project(':nrk-ietf:nrk-ietf-rfc3986-uri')
+
+	testCompile libraries.junit
+	testCompile libraries.assertj
 }
