@@ -24,5 +24,10 @@ public abstract class Uri {
 		return false;
 	}
 
+	@Override
+	public int hashCode() {
+		return toASCIIString().hashCode();
+	}
+
 	public abstract Uri applied(Uri reference);
 }
