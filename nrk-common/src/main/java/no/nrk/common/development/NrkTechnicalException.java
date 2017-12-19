@@ -1,4 +1,4 @@
-package no.nrk.common;
+package no.nrk.common.development;
 
 import no.nrk.common.arguments.Validator;
 
