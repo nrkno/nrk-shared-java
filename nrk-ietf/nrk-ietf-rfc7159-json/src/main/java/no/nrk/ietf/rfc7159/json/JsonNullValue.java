@@ -7,7 +7,7 @@ import no.nrk.common.util.ToString;
 public final class JsonNullValue extends AbstractJsonValue {
 	private static final JsonNullValue SINGLETON = new JsonNullValue();
 
-	public static JsonValue instance() {
+	public static JsonNullValue instance() {
 		return SINGLETON;
 	}
 

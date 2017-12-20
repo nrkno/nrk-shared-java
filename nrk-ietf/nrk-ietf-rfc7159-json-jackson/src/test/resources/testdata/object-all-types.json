@@ -1,0 +1,11 @@
+{
+	"int": 1337,
+	"float": 13.37,
+	"null": null,
+	"string": "string",
+	"boolean": true,
+	"array": [],
+	"object": {
+		
+	}
+}
