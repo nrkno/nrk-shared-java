@@ -70,6 +70,14 @@ public abstract class JsonValue {
 		return isArray().orElseGet(JsonArrayValue::undefined);
 	}
 
+	/**
+	 * @return this instance, if it's a String value, otherwise an undefined
+	 *         {@link JsonStringValue}.
+	 */
+	public final JsonStringValue asString() {
+		return isString().orElseGet(UndefinedJsonStringValue::instance);
+	}
+
 	@Override
 	public String toString() {
 		return ToString.of(this)

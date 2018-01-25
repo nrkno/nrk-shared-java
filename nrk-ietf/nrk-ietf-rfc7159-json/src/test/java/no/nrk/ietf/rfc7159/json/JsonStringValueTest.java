@@ -11,8 +11,10 @@ public class JsonStringValueTest {
 		JsonStringValue emptyString = empty();
 
 		assertThat(emptyString.isEmpty()).isFalse();
+		assertThat(emptyString.isUndefined()).isEmpty();
 
 		assertThat(emptyString).isEqualTo(empty());
+		assertThat(emptyString).isNotEqualTo(undefined());
 
 		assertThat(emptyString.stringValue()).isEmpty();
 		assertThat(emptyString.stringValue()).isEqualTo("");
@@ -24,11 +26,26 @@ public class JsonStringValueTest {
 		JsonStringValue someString = someString();
 
 		assertThat(someString.isEmpty()).isFalse();
+		assertThat(someString.isUndefined()).isEmpty();
 
 		assertThat(someString).isNotEqualTo(empty());
+		assertThat(someString).isNotEqualTo(undefined());
 
 		assertThat(someString.stringValue()).isNotEmpty();
 		assertThat(someString.isString()).hasValue(someString());
+	}
+
+	@Test
+	public void test_undefined() {
+		JsonStringValue undefined = undefined();
+
+		assertThat(undefined.isEmpty()).isTrue();
+		assertThat(undefined.isUndefined()).isPresent();
+
+		assertThat(undefined).isNotEqualTo(empty());
+
+		assertThat(undefined.stringValue()).isEmpty();
+		assertThat(undefined.isString()).hasValue(undefined());
 	}
 
 	private static JsonStringValue someString() {
@@ -37,5 +54,9 @@ public class JsonStringValueTest {
 
 	private static JsonStringValue empty() {
 		return JsonStringValue.valueOf("");
+	}
+
+	private static JsonStringValue undefined() {
+		return JsonStringValue.undefined();
 	}
 }

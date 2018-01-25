@@ -11,7 +11,7 @@ import no.nrk.ietf.rfc7159.json.JsonValue;
 public class JacksonJsonValueFactory {
 	public static JsonValue jsonValue(JsonNode input) {
 		if (input.isTextual()) {
-			return new JsonStringValue(input.asText());
+			return JsonStringValue.valueOf(input.asText());
 		} else if (input.isNull()) {
 			return JsonNullValue.instance();
 		} else if (input.isNumber()) {
