@@ -1,4 +1,6 @@
 include 'nrk-common',
+	'nrk-ietf:nrk-ietf-draft-kelly_json_hal',
+	'nrk-ietf:nrk-ietf-draft-kelly_json_hal-json',
 	'nrk-ietf:nrk-ietf-rfc3986-uri',
 	'nrk-ietf:nrk-ietf-rfc3986-uri-javanet',
 	'nrk-ietf:nrk-ietf-rfc6749-oauth2',
@@ -8,4 +10,3 @@ include 'nrk-common',
 	'nrk-ietf:nrk-ietf-rfc7519-jwt',
 	'nrk-ietf:nrk-ietf-rfc7519-jwt-json',
 	'nrk-java-util'
-

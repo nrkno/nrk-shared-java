@@ -1,13 +1,13 @@
-description = """JSON implementation of IETF RFC 7519 JSON Web Token (JWT)
+description = """JSON implementation of IETF Draft Kelly JSON HAL
 """
 
 dependencies {
+	compile project(':nrk-ietf:nrk-ietf-draft-kelly_json_hal')
+	compile project(':nrk-ietf:nrk-ietf-rfc3986-uri')
 	compile project(':nrk-ietf:nrk-ietf-rfc3986-uri-javanet')
 	compile project(':nrk-ietf:nrk-ietf-rfc7159-json')
-	compile project(':nrk-ietf:nrk-ietf-rfc7519-jwt')
 	compile project(':nrk-java-util')
 
-	testCompile project(':nrk-ietf:nrk-ietf-rfc7159-json-jackson')
 	testCompile libraries.junit
 	testCompile libraries.assertj
 }
