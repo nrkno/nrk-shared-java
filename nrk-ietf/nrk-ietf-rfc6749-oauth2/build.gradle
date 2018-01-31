@@ -1,0 +1,10 @@
+description = """Java specification of IETF RFC 6749 The OAuth 2.0 Authorization Framework (OAuth2)
+"""
+
+dependencies {
+	compile project(':nrk-common')
+	compile project(':nrk-ietf:nrk-ietf-rfc3986-uri')
+
+	testCompile libraries.junit
+	testCompile libraries.assertj
+}

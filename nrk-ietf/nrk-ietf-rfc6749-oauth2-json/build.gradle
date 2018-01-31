@@ -1,0 +1,10 @@
+description = """JSON implementation of IETF RFC 6749 The OAuth 2.0 Authorization Framework (OAuth2)
+"""
+
+dependencies {
+	compile project(':nrk-ietf:nrk-ietf-rfc6749-oauth2')
+	compile project(':nrk-ietf:nrk-ietf-rfc7159-json')
+
+	testCompile libraries.junit
+	testCompile libraries.assertj
+}
