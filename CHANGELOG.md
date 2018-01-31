@@ -32,3 +32,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - New library: IETF RFC 7159 (JSON) Jackson implementation
 
 [0.0.2]: https://github.com/nrkno/nrk-shared-java/compare/v0.0.1...v0.0.2
+[0.0.3]: https://github.com/nrkno/nrk-shared-java/compare/v0.0.2...v0.0.3
+[0.0.4]: https://github.com/nrkno/nrk-shared-java/compare/v0.0.3...v0.0.4
