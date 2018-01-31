@@ -1,13 +1,21 @@
 # NRK Share Java libraries
 
-Configured with [Gradle build system](http://gradle.org/).
+## Published Maven artifacts
+
+Libraries are published to Maven Central, via Sonatype.
+The groupId is **no.nrk.shared**.
+
+To find the modules: <http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22no.nrk.shared%22>
+
 
 ## Build
+
+Configured with [Gradle build system](http://gradle.org/).
 
 	./gradlew build
 
 
-## Gradle artifacts signing
+### Gradle artifacts signing
 
 Configure gpg subkeys according to this:
 <http://superuser.com/questions/879977/how-to-have-a-different-pass-phrase-for-a-gpg-subkey>
