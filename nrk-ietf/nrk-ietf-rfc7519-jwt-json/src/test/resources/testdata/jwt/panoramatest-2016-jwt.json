@@ -1,0 +1,12 @@
+{
+	"aud": "https://adfs-oauth2-helper.nrk.no/",
+	"iss": "http://sts.nrk.no/adfs/services/trust",
+	"iat": 1477378754,
+	"exp": 1477382354,
+	"given_name": "panoramatest",
+	"sub": "panoramatest",
+	"auth_time": "2016-10-25T06:59:14.919Z",
+	"authmethod": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+	"ver": "1.0",
+	"appid": "nrk-adfs-oauth2-app-client-2016"
+}

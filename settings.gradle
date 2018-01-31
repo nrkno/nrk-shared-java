@@ -6,5 +6,6 @@ include 'nrk-common',
 	'nrk-ietf:nrk-ietf-rfc7159-json',
 	'nrk-ietf:nrk-ietf-rfc7159-json-jackson',
 	'nrk-ietf:nrk-ietf-rfc7519-jwt',
+	'nrk-ietf:nrk-ietf-rfc7519-jwt-json',
 	'nrk-java-util'
 
